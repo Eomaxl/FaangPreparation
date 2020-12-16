@@ -30,7 +30,16 @@ public class ContainerWithMostWater {
     }
 
     public static int countMaxUnit(int [] arr) {
+        int ans = 0 , l=0, r =arr.length -1;
 
-        return 0;
+        while(l < r) {
+            ans = Math.max(ans, Math.min(arr[l], arr[r]) * (r-l));
+            if(arr[l] < arr[r]) {
+                l++;
+            } else {
+                r--;
+            }
+        }
+        return ans;
     }
 }
